@@ -1,7 +1,7 @@
 # Maven Adventure Works Project
 ## Introduction
 
-![](MavenMarket.png)
+![](AdventureWorks.png)
 
 This Project Case is part of the [Microsoft Power BI Desktop for Business Intelligence Course](https://www.udemy.com/course/microsoft-power-bi-up-running-with-power-bi-desktop/) on [Udemy](https://www.udemy.com) online platform by **Maven Analytics**. In this case, I am being put in the point of view of a Business Intelligence Analyst in **AdventureWorks**, a global manufacturing company that runs cycling equipment and accessories production. The objectives are to transform raw data into a dashboard report to help the Management Team track the KPI, monitor and compare the performance, and identify some insights, as well as high value customers. I worked through the entire business intelligence workflow, i.e.: **connecting and transforming the raw data, building a relational data model, creating calculated fields and measures with DAX, and designing an interactive report** to visualize the data.
 
@@ -9,7 +9,7 @@ This Project Case is part of the [Microsoft Power BI Desktop for Business Intell
 
 ## Datasets
 
-![](ProcessFlow.png)
+![](ProcessFlow01.png)
 
 There are 8 Datasets used in this project, i.e.:
 

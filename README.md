@@ -3,64 +3,42 @@
 
 ![](MavenMarket.png)
 
-This Project Case is part of the [Microsoft Power BI Desktop for Business Intelligence Course](https://www.udemy.com/course/microsoft-power-bi-up-running-with-power-bi-desktop/) on [Udemy](https://www.udemy.com) online platform by Maven Analytics. In this case, I am being put in the point of view of a Business Intelligence Analyst in **AdventureWorks**, a global manufacturing company that runs cycling equipment and accessories production. The objectives are to transform raw data into a dashboard report to help the Management Team track the KPI, monitor and compare the performance, and identify some insights, as well as high value customers. I worked through the entire business intelligence workflow, i.e.: **connecting and transforming the raw data, building a relational data model, creating calculated fields and measures with DAX, and designing an interactive report** to visualize the data.
+This Project Case is part of the [Microsoft Power BI Desktop for Business Intelligence Course](https://www.udemy.com/course/microsoft-power-bi-up-running-with-power-bi-desktop/) on [Udemy](https://www.udemy.com) online platform by **Maven Analytics**. In this case, I am being put in the point of view of a Business Intelligence Analyst in **AdventureWorks**, a global manufacturing company that runs cycling equipment and accessories production. The objectives are to transform raw data into a dashboard report to help the Management Team track the KPI, monitor and compare the performance, and identify some insights, as well as high value customers. I worked through the entire business intelligence workflow, i.e.: **connecting and transforming the raw data, building a relational data model, creating calculated fields and measures with DAX, and designing an interactive report** to visualize the data.
 
 ## Problem Questions
-The Management Team would like to find out the Topline Performance of their products. This must be delivered by:
-- Defining the Top 30 Product Brands with highest Total Transactions and their corresponding Profit, Profit Margin, as well as Return Rate in descending order.
-- Providing KPI information displaying the Current Month Transactions vs Last Month Transactions, Current Month Profit vs Last Month Profit, and Current Month Returns vs Last Month Returns.
-- Displaying a visual geographical map showing Transactions by Cities in which the company stores are operating.
-- Providing information of Total Transaction in each of the country that can be drilled up/down, so that the granularity of the information can be determined in either level of country, city, or state.
-- Providing the weekly trending of the company's revenue, especially during the year 1998. Besides that, the management also wanted to find out the highest monthly revenue ever achieved.
 
 ## Datasets
 
 ![](ProcessFlow.png)
 
-There are 7 Datasets used in this project, i.e.:
+There are 8 Datasets used in this project, i.e.:
 
-**1. Customer Table Dataset (MavenMarket_Customers.csv)**
-
-| **Field Name** | **Data Type** |
-| ------ | ------ |
-| customer_id | Whole Number|
-| customer_acct_num | Text |
-| first_name | Text |
-| last_name | Text |
-| customer_address | Text |
-| customer_city | Text |
-| customer_state_province | Text |
-| customer_postal_code | Text |
-| customer_country | Text |
-| birthdate | Date |
-| marital_status | Text |
-| yearly_income | Text |
-| gender | Text |
-| total_children | Whole Number |
-| num_children_at_home | Whole Number |
-| education | Text |
-| acct_open_date | Date |
-| member_card | Text |
-| occupation | Text |
-| homeowner | Text |
-| full_name | Text |
-| birth_year | Text |
-| has_children | Y/N |
-
-**2. Products Table Dataset (MavenMarket_Products.csv)**
+**1. Returns Dataset (AdventureWorks Returns Data.csv)**
 
 | **Field Name** | **Data Type** |
 | ------ | ------ |
-| product_id | Whole Number |
-| product_brand | Text |
-| product_name | Text |
-| product_sku | Text |
-| product_retail_price | Decimal Number |
-| product_cost | Decimal Number |
-| product_weight | Decimal Number |
-| recyclable | Decimal Number |
-| low_fat | Decimal Number |
-| discount_price | Fixed Decimal Number (Currency) |
+| ReturnDate | Date |
+| TerritoryKey | Whole Number |
+| ProductKey | Whole Number |
+| ReturnQuantity | Whole Number |
+
+**2. Products Lookup Dataset (AdventureWorks Product Lookup.csv)**
+
+| **Field Name** | **Data Type** |
+| ------ | ------ |
+| ProductKey | Whole Number |
+| ProductSubcategoryKey | Whole Number |
+| ProductSKU | Text |
+| ProductName | Text |
+| ModelName | Text |
+| ProductDescription | Text |
+| ProductColor | Text |
+| ProductStyle | Text |
+| ProductCost | Fixed Decimal Number |
+| ProductPrice | Fixed Decimal Number |
+| SKU Type | Text |
+| DiscountPrice | Fixed Decimal Number|
+
 
 **3. Calendar Table Dataset (MavenMarket_Calendar.csv)**
 

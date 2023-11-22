@@ -40,64 +40,76 @@ There are 8 Datasets used in this project, i.e.:
 | DiscountPrice | Fixed Decimal Number|
 
 
-**3. Calendar Table Dataset (MavenMarket_Calendar.csv)**
+**3. Product Category Lookup Dataset (AdventureWorks Product Categories Lookup.csv)**
 
 | **Field Name** | **Data Type** |
 | ------ | ------ |
-| date | Date |
+| ProductCategoryKey | Whole Number |
+| CategoryName | Text |
+
+**4. Product Subcategory Lookup Dataset (AdventureWorks Product Subcategories Lookup.csv)**
+
+| **Field Name** | **Data Type** |
+| ------ | ------ |
+| ProductSubcategoryKey | Whole Number |
+| SubcategoryName | Text |
+| ProductCategoryKey | Whole Number |
+
+**5. Calendar Lookup Dataset (AdventureWorks Calendar Lookup.csv)**
+
+| **Field Name** | **Data Type** |
+| ------ | ------ |
+| Date | Date |
+| Day Name | Text |
 | Start of Week | Date |
-| Name of Day | Text |
 | Start of Month | Date |
-| Name of Month | Text |
-| Quarter | Whole Number |
+| Start of Quarter | Date |
+| Month Name | Text |
+| Month | Whole Number |
+| Start of Year | Date |
 | Year | Whole Number |
 
-**4. Regions Table Dataset (MavenMarket_Regions.csv)**
+**6. Customer Lookup Dataset (AdventureWorks Customer Lookup.csv)**
 
 | **Field Name** | **Data Type** |
 | ------ | ------ |
-| region_id | Whole Number |
-| sales_district | Text |
-| sales_region | Text |
+| CustomerKey | Whole Number |
+| Prefix | Text |
+| FirstName | Text |
+| LastName | Text |
+| BirthDate | Date |
+| MaritalStatus | Text |
+| Gender | Text |
+| EmailAddress | Text |
+| AnnualIncome | Fixed Deci9mal Number |
+| TotalChildren | Whole Number |
+| EducationLevel | Text |
+| Occupation | Text |
+| HomeOwner | Text |
+| FullName | Text |
+| DomainName | Text |
 
-**5. Stores Table Dataset (MavenMarket_Stores.csv)**
-
-| **Field Name** | **Data Type** |
-| ------ | ------ |
-| store_id | Whole Number |
-| region_id | Whole Number |
-| store_type | Text |
-| store_name | Text |
-| store_street_address | Text |
-| store_city | Text |
-| store_state | Text |
-| store_country | Text |
-| store_phone | Text |
-| first_opened_date | Date |
-| last_remodel_date | Date |
-| total_sqft | Whole Number |
-| grocery_sqft | Whole Number |
-| full_address | Text |
-| area_code | Text |
-
-**6. Transaction Table Dataset (MavenMarket_Transactions_1997 & MavenMarket_Transactions_1998.csv)**
+**7. Territory Lookup Dataset (AdventureWorks Territory Lookup.csv)**
 
 | **Field Name** | **Data Type** |
 | ------ | ------ |
-| transaction_date | Date |
-| stock_date | Date |
-| product_id | Whole Number |
-| customer_id | Whole Number |
-| store_id | Whole Number |
+| SalesTerritoryKey | Whole Number |
+| Region | Text |
+| Country | Text |
+| Continent | Text |
 
-**7. Return Table Dataset (MavenMarket_Returns_1997-1998.csv)**
+**8. Sales Dataset (AdventureWorks Sales Data 2020.csv, AdventureWorks Sales Data 2021.csv, & AdventureWorks Sales Data 2022.csv)**
 
 | **Field Name** | **Data Type** |
 | ------ | ------ |
-|return_date | Date |
-| product_id | Whole Number |
-| store_id | Whole Number |
-| quantity | Whole Number |
+| OrderDate | Date |
+| StockDate | Date |
+| OrderNumber | Text |
+| ProductKey | Whole Number |
+| CustomerKey | Whole Number |
+| TerritoryKey | Whole Number |
+| OrderLineItem | Whole Number |
+| OrderQuantity | Whole Number |
 
 ## Connecting and Shaping the Data
 

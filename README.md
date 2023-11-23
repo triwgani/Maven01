@@ -129,7 +129,7 @@ There are several steps in this phase in order to connect and shape the Data use
 - Removing rows the CustomerKey of it is null
 - Creating a new column named "FullName", "EmailAddress" and "DomainName" as well as formating them as text
 
-![](Customer.png)
+![](CustomerLookup.png)
 
 **3. Connect to the MavenMarket_Products csv file by:**
 

@@ -122,13 +122,12 @@ There are several steps in this phase in order to connect and shape the Data use
 
 ![](DisableAutodetect.png)
 
-**2. Connect to the MavenMarket_Customers csv file by:**
+**2. Connect to the AdventureWorks Customer Lookup csv file by:**
 
-- Naming the table "Customers", and making sure that headers have been promoted
-- Confirming that data types are accurate (Note: "customer_id" should be whole numbers, and both "customer_acct_num" and "customer_postal_code" should be text)
-- Adding a new column named "full_name" to merge the the "first_name" and "last_name" columns, separated by a space
-- Creating a new column named "birth_year" to extract the year from the "birthdate" column, and format as text
-- Creating a conditional column named "has_children" which equals "N" if "total_children" = 0, otherwise "Y"
+- Naming the table "Customers Lookup", and making sure that headers have been promoted
+- Confirming that data types are accurate (Note: "CustomerKey", "AnnualIncome", "TotalChildren" should be whole numbers, "Prefix", "FirstName", "LastName", MaritalStatus", "Gender", EducationLevel", "EmailAddress", "Occupation", and "HomeOwner" should be text, and "BirthDate" should be Date, )
+- Removing rows the CustomerKey of it is null
+- Creating a new column named "FullName", "EmailAddress" and "DomainName" as well as formating them as text
 
 ![](Customer.png)
 

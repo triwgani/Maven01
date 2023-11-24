@@ -159,20 +159,21 @@ There are several steps in this phase in order to connect and shape the Data use
 
 ![](Region.png)
 
-**6. Connect to the MavenMarket_Calendar csv file by:**
+**6. Connect to the AdventureWorks Calendar Lookup csv file by:**
 
-- Naming the table "Calendar" and making sure that headers have been promoted
+- Naming the table "Calendar Lookup" and making sure that headers have been promoted
 - Using the date tools in the query editor to add the following columns:
-    > Start of Week (starting Sunday, Name of Day, Start of Month, Name of Month, Quarter of Year, Year
+    > Day Name, Start of Week, Start of Month, Start of Quarter, Month Name, Month, Start of Year, Year
+- Confirming that the data types are accurate. This means all Date, Start of Week, Start of Month, Start of Quarter, and Start of Year data types are Date, while Day Name and Month Name are Text, leaving Month and Year with Whole Number data type.
 
-![](Calendar.png)
+![](CalendarLookup.png)
 
-**7. Connect to the MavenMarket_Returns csv file by:**
+**7. Connect to the AdventureWorks Returns csv file by:**
 
-- Naming the table "Return_Data" and making sure that headers have been promoted
-- Confirming that data types are accurate (all ID columns and quantity should be whole numbers)
+- Naming the table "Returns Data" and making sure that headers have been promoted
+- Confirming that data types are accurate (all Key and Quantity columns should be whole numbers, while ReturnDate is Date)
 
-![](Return.png)
+![](Returns.png)
 
 **8. Add a new folder on your desktop (or in your documents) named "MavenMarket Transactions", containing both the MavenMarket_Transactions_1997 and MavenMarket_Transactions_1998 csv files by:**
 

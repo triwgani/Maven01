@@ -175,14 +175,15 @@ There are several steps in this phase in order to connect and shape the Data use
 
 ![](Returns.png)
 
-**8. Add a new folder on your desktop (or in your documents) named "MavenMarket Transactions", containing both the MavenMarket_Transactions_1997 and MavenMarket_Transactions_1998 csv files by:**
+**8. Connect to the AdventureWorks Sales Data by:**
 
-- Connecting to the folder path, and choosing "Edit" (vs. Combine and Edit)
-- Clicking the "Content" column header (double arrow icon) to combine the files, then removing the "Source.Name" column
-- Naming the table "Transaction_Data", and confirming that headers have been promoted
-- Confirming that data types are accurate (all ID columns and quantity should be whole numbers) and conducting Spot check to see data from 1/1/1997 through 12/30/1998 in the "transaction_date" column
+- Connecting to the AdventureWorks Sales Data 2020, 2021, and 2022 csv file from the Microsoft Sharepoint. 
+- Signing with the account credential to query those 3 files into the Power BI Query Editor.
+- Naming the 3 tables "Sales 2020", "Sales 2021", and "Sales 2022" respectively, as well as confirming that headers have been promoted for each corresponding table.
+- Confirming that data types are accurate. OrderDate, StockDate data types are Date. OrderNumber data type is Text, while the data types for ProductKey, CustomerKey, TerritoryKey, OrderLineItem, and OrderQuantity are Whole Number.
+- Since I merged 3 Tables (Sales Data 2020, 2021, and 2022), I only need to load the merged table (Sales Data Table). The 3 source data queries were not to be loaded. Therefore, I uncheck the Enable Load option in the Query Editor.
 
-![](Transaction.png)
+![](SalesData.png)
 
 **9. With the exception of the two data tables, disable "Include in Report Refresh", then Close & Apply by:**
 

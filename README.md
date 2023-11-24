@@ -147,14 +147,21 @@ There are several steps in this phase in order to connect and shape the Data use
 
 ![](ProductCategoryLookup.png)
 
-**5. Connect to the AdventureWorks Territory Lookup csv file by:**
+**5. Connect to the AdventureWorks Product Subcategory Lookup csv file by:**
+
+- Naming the table "Product Subcategory Lookup" and making sure that headers have been promoted
+- Confirming that data types are accurate (Note: "ProductSubcategoryKey" and "ProductCategoryKey" should be Whole Number, while "SubcategoryName" must be Text).
+
+![](ProductSubcategoryLookup.png)
+
+**6. Connect to the AdventureWorks Territory Lookup csv file by:**
 
 - Naming the table "Territory Lookup" and making sure that headers have been promoted
 - Confirming that data types are accurate (Note: All "Region", "Country", "Continent" data types should be Text, while "SalesTerritoryKey" is Whole Number)
 
 ![](TerritoryLookup.png)
 
-**6. Connect to the AdventureWorks Calendar Lookup csv file by:**
+**7. Connect to the AdventureWorks Calendar Lookup csv file by:**
 
 - Naming the table "Calendar Lookup" and making sure that headers have been promoted
 - Using the date tools in the query editor to add the following columns:
@@ -163,26 +170,26 @@ There are several steps in this phase in order to connect and shape the Data use
 
 ![](CalendarLookup.png)
 
-**7. Connect to the AdventureWorks Returns csv file by:**
+**8. Connect to the AdventureWorks Returns csv file by:**
 
 - Naming the table "Returns Data" and making sure that headers have been promoted
 - Confirming that data types are accurate (all "Key" and "Quantity" columns should be whole numbers, while "ReturnDate" is Date)
 
 ![](Returns.png)
 
-**8. Connect to the AdventureWorks Sales Data by:**
+**9. Connect to the AdventureWorks Sales Data by:**
 
 - Connecting to the AdventureWorks Sales Data 2020, 2021, and 2022 csv file from the Microsoft Sharepoint. 
 - Signing with the account credential to query those 3 files into the Power BI Query Editor.
 - Naming the 3 tables "Sales 2020", "Sales 2021", and "Sales 2022" respectively, as well as confirming that headers have been promoted for each corresponding table.
 - Confirming that data types are accurate. "OrderDate", "StockDate" data types are Date. "OrderNumber" data type is Text, while the data types for "ProductKey", "CustomerKey", "TerritoryKey", "OrderLineItem", and "OrderQuantity" are Whole Number.
-- Since I merged 3 Tables (Sales Data 2020, 2021, and 2022), I only need to load the merged table (Sales Data Table). The 3 source data queries were not to be loaded. Therefore, I unchecked the Enable Load option in the Query Editor.
+- Since I merged 3 Tables (Sales Data 2020, 2021, and 2022), I only need to load the merged table (Sales Data Table). The 3 source data queries were not to be loaded. Therefore, I unchecked the Enable Load option in the Query Editor to disable "Include in report refresh" option.
 
 ![](SalesData.png)
 
-**9. With the exception of the two data tables, disable "Include in Report Refresh", then Close & Apply by:**
+**10. With the exception of the other three data tables ("Largest companies", "Rolling Calendar", "Product Category Sales", disable "Include in Report Refresh", then Close & Apply by:**
 
-- Confirming that all 7 tables are now accessible within both the RELATIONSHIPS view and the DATA view
+- Confirming that all 8 tables are now accessible within both the RELATIONSHIPS view and the DATA view
 
 ## Building a Relational Model
 

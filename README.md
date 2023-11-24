@@ -226,107 +226,11 @@ There are 2 spots in which I worked to add Calculation Fields and DAX, i.e. the 
 
 **1. In the DATA view, add the following calculated columns by:**
 
-- Adding a column in the Calendar Lookup table, named "Day of Week"
-```Sh
-Day of Week = WEEKDAY('Calendar Lookup'[Date],2)
-```
-- Adding a column in the Calendar Lookup table, named "Is Weekend?", that returns Weekend when Day of Week is 6 or 7, but returns Weekday if the Day of Week are other than 6 or 7 for each row.
-```Sh
-Is Weekend? = if('Calendar Lookup'[Day of Week]= 6 ||'Calendar Lookup'[Day of Week] = 7,"Weekend", "Weekday")
-```
-- Adding a column in the Customers table, named "Current Age" that calculates current customer ages using the "birthdate" column and the TODAY() function
-```Sh
-Current Age = DATEDIFF(Customers[birthdate], TODAY(), YEAR)
-```
-- Adding a column in the Customers table, named "Priority" which equals "High" for customers who own homes and have Golden membership cards (otherwise "Standard")
-```Sh
-Priority = IF(Customers[homeowner]="Y" && Customers[member_card]="Golden","High","Standard")
-```
-- Adding a column in the Customers table, named "Short_Country" that returns the first three characters of the customer country, and converts to all uppercase
-```Sh
-Short_Country = UPPER(LEFT(Customers[customer_country],3))
-```
-- Adding a column in the Customers table, named "House Number" that extracts all characters/numbers before the first space in the "customer_address" column (hint: use SEARCH)
-```Sh
-House Number = LEFT(Customers[customer_address],SEARCH(" ",Customers[customer_address])-1)
-```
-- Adding a column in the Products table, named "Price_Tier" that equals "High" if the retail price is >$3, "Mid" if the retail price is >$1, and "Low" otherwise
-```Sh
-Price_Tier = SWITCH(TRUE(),Products[product_retail_price]>3,"High",Products[product_retail_price]>1,"Mid","Low")
-```
-- Adding a column in the Stores table, named "Years_Since_Remodel" that calculates the number of years between the current date (TODAY()) and the last remodel date
-```Sh
-Years_Since_Remodel = DATEDIFF(Stores[last_remodel_date],TODAY(),YEAR)
-```
+
 
 **2. In the REPORT view, add the following measures (Assign to tables as you see fit, and use a matrix to match the "spot check" values) by:**
 
-- Creating new measures named "Quantity Sold" and "Quantity Returned" to calculate the sum of quantity from each data table, and conducting Spot check to see total Quantity Sold = 833,489 and total Quantity Returned = 8,289
-```Sh
-Quantity Sold = SUM(Transaction_Data[quantity])
-Quantity Returned = SUM(Return_Data[quantity])
-```
-- Creating new measures named "Total Transactions" and "Total Returns" to calculate the count of rows from each data table, and conducting Spot check to see 269,720 transactions and 7,087 returns
-```Sh
-Total Transaction = COUNTROWS(Transaction_Data)
-Total Return = COUNT(Return_Data[return_date])
-```
-- Creating a new measure named "Return Rate" to calculate the ratio of quantity returned to quantity sold (format as %), and conducting Spot check to see an overall return rate of 0.99%
-```Sh
-Return Rate = DIVIDE([Quantity Returned],[Quantity Sold])
-```
-- Creating a new measure named "Weekend Transactions" to calculate transactions on weekends, and conducting Spot check to see 76,608 total weekend transactions
-```Sh
-Weekend Transaction = CALCULATE([Total Transaction],'Calendar'[Weekend]="Y")
-```
-- Creating a new measure named "% Weekend Transactions" to calculate weekend transactions as a percentage of total transactions (format as %), and conducting Spot check to see 28.4% weekend transactions
-```Sh
-% Weekend Transaction = DIVIDE([Weekend Transaction],[Total Transaction])
-```
-- Creating new measures named "All Transactions" and "All Returns" to calculate grand total transactions and returns (regardless of filter context), and conducting Spot check to see 269,720 transactions and 7,087 returns across all rows
-```Sh
-All Transaction = CALCULATE([Total Transaction],ALL(Transaction_Data))
-All Return = CALCULATE([Total Return],ALL(Return_Data))
-```
-- Creating a new measure to calculate "Total Revenue" based on transaction quantity and product retail price, and formating as $ (using and iterator), as well as conducting pot check to see a total revenue of $1,764,546
-```Sh
-Total Revenue = SUMX(Transaction_Data,Transaction_Data[quantity]*RELATED(Products[product_retail_price]))
-```
-- Creating a new measure to calculate "Total Cost" based on transaction quantity and product cost, and formating as $ (using an iterator), as well as conducting Spot check to see a total cost of $711,728
-```Sh
-Total Cost = SUMX(Transaction_Data,Transaction_Data[quantity]*RELATED(Products[product_cost]))
-```
-- Creating a new measure named "Total Profit" to calculate total revenue minus total cost, formating as $, and conducting Spot check to see a total profit of $1,052,819
-```Sh
-Total Profit = [Total Revenue]-[Total Cost]
-```
-- Creating a new measure to calculate "Profit Margin" by dividing total profit by total revenue calculate total revenue (format as %), and conducting Spot check to see an overall profit margin of 59.67%
-```Sh
-Profit Margin = DIVIDE([Total Profit],[Total Revenue])
-```
-- Creating a new measure named "Unique Products" to calculate the number of unique product names in the Products table, and conducting Spot check to see 1,560 unique products
-```Sh
-Unique Products = DISTINCTCOUNT(Products[product_name])
-```
-- Creating a new measure named "YTD Revenue" to calculate year-to-date total revenue, formating as $, and createing a matrix with "Start of Month" on rows to see $872,924 in YTD Revenue in September 1998 for Spot check
-```Sh
-YTD Revenue = CALCULATE([Total Revenue],DATESYTD('Calendar'[date]))
-```
-- Creating a new measure named "60-Day Rolling Revenue" to calculate a running revenue total over a 60-day period, formating as $, and creating a matrix with "date" on rows to see $97,570 in 60-Day Revenue on 4/14/1997 for Spot check
-```Sh
-60-Day-Rolling Revenue = CALCULATE([Total Revenue],DATESINPERIOD ('Calendar'[Date],MAX('Calendar'[Date]),-60,DAY))
-```
-- Creating new measures named  "Last Month Transactions", "Last Month Revenue", "Last Month Profit", and "Last Month Returns", and creating a matrix with "Start of Month" on rows to confirm accuracy for Spot check
-```Sh
-Last Month Transaction = CALCULATE([Total Transaction],DATEADD('Calendar'[date],-1,MONTH))
-Last Month Revenue = CALCULATE([Total Revenue],DATEADD('Calendar'[Date],-1,MONTH))
-Last Month Profit = CALCULATE([Total Profit],DATEADD('Calendar'[Date],-1,MONTH))
-Last Month Returns = CALCULATE([Total Return],DATEADD('Calendar'[Date],-1,MONTH))
-```
-- Creating a new measure named "Revenue Target" based on a 5% lift over the previous month revenue, and formating as $, and conducting Spot check to see a Revenue Target of $99,223 in March 1998
-```Sh
-Revenue Target = [Last Month Revenue]*1.05
-```
+
 
 Executing all the detailed Steps in 2 spots above, resulted in adding a new Table containing all Measures needed in the modelling.
 

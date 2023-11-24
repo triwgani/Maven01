@@ -134,23 +134,18 @@ There are several steps in this phase in order to connect and shape the Data use
 **3. Connect to the AdventureWorks Product Lookup csv file by:**
 
 - Naming the table "Product Lookup" and making sure that headers have been promoted
-- Confirming that data types are accurate (Note: "product_id" should be whole numbers, "product_sku" should be text), "product_retail_price" and "product_cost" should be decimal numbers)
-- Using the statistics tools to return the number of distinct product brands, followed by distinct product names and conducting Spot check to see **111 brands and 1,560 product names**
-- Adding a calculated column named "discount_price", equal to 90% of the original retail price and formating as a fixed decimal number, and then use the rounding tool to round to 2 digits
-- Selecting "product_brand" and use the Group By option to calculate the average retail price by brand, and name the new column "Avg Retail Price". Conducting Spot check to see an average retail price of $2.18 for Washington products, and $2.21 for Green Ribbon
-- Deleting the last applied step to return the table to its pre-grouped state
-- Replacing "null" values with zeros in both the "recyclable" and "low-fat" columns
+- Removing "ProductSize" column because it was not needed.
+- Confirming that data types are accurate (Note: "ProductKey", "ProductSubcategoryKey" should be whole numbers, -- "ProductSKU", "ProductName", "ModelName", "ProductDescription", "ProductColor", "ProductStyle", and "SKUType" should be Text, --"ProductCost", "ProductPrice", and "DiscountPrice" should be Fixed Decimal Number)
+- Replacing "0" values with "NA" in "ProductStyle" column.
 
-![](Product.png)
+![](ProductLookup.png)
 
-**4. Connect to the MavenMarket_Stores csv file by:**
+**4. Connect to the AdventureWorks Product Category Lookup csv file by:**
 
-- Naming the table "Stores" and making sure that headers have been promoted
-- Confirming that data types are accurate (Note: "store_id" and "region_id" should be whole numbers)
-- Adding a calculated column named "full_address", by merging "store_city", "store_state", and "store_country", separated by a comma and space (hint: use a custom separator)
-- Adding a calculated column named "area_code", by extracting the characters before the dash ("-") in the "store_phone" field
+- Naming the table "Product Category Lookup" and making sure that headers have been promoted
+- Confirming that data types are accurate (Note: "ProductCategoryKey" should be Whole Number and "CategoryName" must be Text)
 
-![](Store.png)
+![](ProductCategoryLookup.png)
 
 **5. Connect to the AdventureWorks Territory Lookup csv file by:**
 
@@ -181,7 +176,7 @@ There are several steps in this phase in order to connect and shape the Data use
 - Signing with the account credential to query those 3 files into the Power BI Query Editor.
 - Naming the 3 tables "Sales 2020", "Sales 2021", and "Sales 2022" respectively, as well as confirming that headers have been promoted for each corresponding table.
 - Confirming that data types are accurate. "OrderDate", "StockDate" data types are Date. "OrderNumber" data type is Text, while the data types for "ProductKey", "CustomerKey", "TerritoryKey", "OrderLineItem", and "OrderQuantity" are Whole Number.
-- Since I merged 3 Tables (Sales Data 2020, 2021, and 2022), I only need to load the merged table (Sales Data Table). The 3 source data queries were not to be loaded. Therefore, I uncheck the Enable Load option in the Query Editor.
+- Since I merged 3 Tables (Sales Data 2020, 2021, and 2022), I only need to load the merged table (Sales Data Table). The 3 source data queries were not to be loaded. Therefore, I unchecked the Enable Load option in the Query Editor.
 
 ![](SalesData.png)
 

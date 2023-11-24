@@ -125,7 +125,7 @@ There are several steps in this phase in order to connect and shape the Data use
 **2. Connect to the AdventureWorks Customer Lookup csv file by:**
 
 - Naming the table "Customers Lookup", and making sure that headers have been promoted
-- Confirming that data types are accurate (Note: "CustomerKey", "AnnualIncome", "TotalChildren" should be whole numbers, "Prefix", "FirstName", "LastName", MaritalStatus", "Gender", EducationLevel", "EmailAddress", "Occupation", and "HomeOwner" should be text, and "BirthDate" should be Date, )
+- Confirming that data types are accurate (Note: "CustomerKey", "AnnualIncome", "TotalChildren" should be whole numbers, "Prefix", "FirstName", "LastName", MaritalStatus", "Gender", "EducationLevel", "EmailAddress", "Occupation", and "HomeOwner" should be text, and "BirthDate" should be Date, )
 - Removing rows the CustomerKey of it is null
 - Creating a new column named "FullName", "EmailAddress" and "DomainName" as well as formating them as text
 
@@ -155,7 +155,7 @@ There are several steps in this phase in order to connect and shape the Data use
 **5. Connect to the AdventureWorks Territory Lookup csv file by:**
 
 - Naming the table "Territory Lookup" and making sure that headers have been promoted
-- Confirming that data types are accurate (Note: All Region, Country, Continent data types should be Text, while SalesTerritoryKey is Whole Number)
+- Confirming that data types are accurate (Note: All "Region", "Country", "Continent" data types should be Text, while "SalesTerritoryKey" is Whole Number)
 
 ![](TerritoryLookup.png)
 
@@ -163,15 +163,15 @@ There are several steps in this phase in order to connect and shape the Data use
 
 - Naming the table "Calendar Lookup" and making sure that headers have been promoted
 - Using the date tools in the query editor to add the following columns:
-    > Day Name, Start of Week, Start of Month, Start of Quarter, Month Name, Month, Start of Year, Year
-- Confirming that the data types are accurate. This means all Date, Start of Week, Start of Month, Start of Quarter, and Start of Year data types are Date, while Day Name and Month Name are Text, leaving Month and Year with Whole Number data type.
+    > "Day Name", "Start of Week", "Start of Month", "Start of Quarter", "Month Name", "Month", "Start of Year", "Year"
+- Confirming that the data types are accurate. This means all "Date", "Start of Week", "Start of Month", "Start of Quarter", and "Start of Year" data types are Date, while "Day Name" and "Month Name" are Text, leaving "Month" and "Year" with Whole Number data type.
 
 ![](CalendarLookup.png)
 
 **7. Connect to the AdventureWorks Returns csv file by:**
 
 - Naming the table "Returns Data" and making sure that headers have been promoted
-- Confirming that data types are accurate (all Key and Quantity columns should be whole numbers, while ReturnDate is Date)
+- Confirming that data types are accurate (all "Key" and "Quantity" columns should be whole numbers, while "ReturnDate" is Date)
 
 ![](Returns.png)
 
@@ -180,7 +180,7 @@ There are several steps in this phase in order to connect and shape the Data use
 - Connecting to the AdventureWorks Sales Data 2020, 2021, and 2022 csv file from the Microsoft Sharepoint. 
 - Signing with the account credential to query those 3 files into the Power BI Query Editor.
 - Naming the 3 tables "Sales 2020", "Sales 2021", and "Sales 2022" respectively, as well as confirming that headers have been promoted for each corresponding table.
-- Confirming that data types are accurate. OrderDate, StockDate data types are Date. OrderNumber data type is Text, while the data types for ProductKey, CustomerKey, TerritoryKey, OrderLineItem, and OrderQuantity are Whole Number.
+- Confirming that data types are accurate. "OrderDate", "StockDate" data types are Date. "OrderNumber" data type is Text, while the data types for "ProductKey", "CustomerKey", "TerritoryKey", "OrderLineItem", and "OrderQuantity" are Whole Number.
 - Since I merged 3 Tables (Sales Data 2020, 2021, and 2022), I only need to load the merged table (Sales Data Table). The 3 source data queries were not to be loaded. Therefore, I uncheck the Enable Load option in the Query Editor.
 
 ![](SalesData.png)

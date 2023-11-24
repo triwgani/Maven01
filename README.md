@@ -152,12 +152,12 @@ There are several steps in this phase in order to connect and shape the Data use
 
 ![](Store.png)
 
-**5. Connect to the MavenMarket_Regions csv file by:**
+**5. Connect to the AdventureWorks Territory Lookup csv file by:**
 
-- Naming the table "Regions" and making sure that headers have been promoted
-- Confirming that data types are accurate (Note: "region_id" should be whole numbers)
+- Naming the table "Territory Lookup" and making sure that headers have been promoted
+- Confirming that data types are accurate (Note: All Region, Country, Continent data types should be Text, while SalesTerritoryKey is Whole Number)
 
-![](Region.png)
+![](TerritoryLookup.png)
 
 **6. Connect to the AdventureWorks Calendar Lookup csv file by:**
 

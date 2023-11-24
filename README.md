@@ -131,9 +131,9 @@ There are several steps in this phase in order to connect and shape the Data use
 
 ![](CustomerLookup.png)
 
-**3. Connect to the MavenMarket_Products csv file by:**
+**3. Connect to the AdventureWorks Product Lookup csv file by:**
 
-- Naming the table "Products" and making sure that headers have been promoted
+- Naming the table "Product Lookup" and making sure that headers have been promoted
 - Confirming that data types are accurate (Note: "product_id" should be whole numbers, "product_sku" should be text), "product_retail_price" and "product_cost" should be decimal numbers)
 - Using the statistics tools to return the number of distinct product brands, followed by distinct product names and conducting Spot check to see **111 brands and 1,560 product names**
 - Adding a calculated column named "discount_price", equal to 90% of the original retail price and formating as a fixed decimal number, and then use the rounding tool to round to 2 digits
@@ -223,14 +223,13 @@ There are 2 spots in which I worked to add Calculation Fields and DAX, i.e. the 
 
 **1. In the DATA view, add the following calculated columns by:**
 
-- Adding a column in the Calendar table, named "Weekend", which equals "Y" for Saturdays or Sundays (otherwise "N")
+- Adding a column in the Calendar Lookup table, named "Day of Week"
 ```Sh
-Weekend = 
-if('Calendar'[Name of Day] IN {"Saturday","Sunday"},"Y","N")
+Day of Week = WEEKDAY('Calendar Lookup'[Date],2)
 ```
-- Adding a column in the Calendar table, named "End of Month", that returns the last date of the current month for each row
+- Adding a column in the Calendar Lookup table, named "Is Weekend?", that returns Weekend when Day of Week is 6 or 7, but returns Weekday if the Day of Week are other than 6 or 7 for each row.
 ```Sh
-End of Month = EOMONTH('Calendar'[date],0)
+Is Weekend? = if('Calendar Lookup'[Day of Week]= 6 ||'Calendar Lookup'[Day of Week] = 7,"Weekend", "Weekday")
 ```
 - Adding a column in the Customers table, named "Current Age" that calculates current customer ages using the "birthdate" column and the TODAY() function
 ```Sh

@@ -224,33 +224,155 @@ All the steps above resulted in the following Relation Model:
 ## Adding Calculated Fields and DAX (Data Analysis eXpression)
 There are 3 spots in which I worked to add Calculation Fields and DAX, i.e. the **Data View**, the **Report View**, and the **Additional Tables for Metric Selection**.
 
-**1. In the DATA view, add the following calculated columns into Calendar Lookup Table by:**
-- Adding Day of Week Calculation Field:
+**1. In the DATA view, add the following calculated columns by:**
+- Adding "Day of Week" Calculation Field:
   ```Sh
   Day of Week = WEEKDAY('Calendar Lookup'[Date],2)
   ```
   
-- Adding Is Weekend?:
+- Adding "Is Weekend?":
   ```Sh
   Is Weekend? = if('Calendar Lookup'[Day of Week]= 6 || 'Calendar Lookup'[Day of Week] = 7,"Weekend","Weekday")
   ```
   
-- Adding Month Number:
+- Adding "Month Number":
   ```Sh
   SWITCH ('Calendar Lookup'[Month Name],
     "January","1","February","2","March","3","April","4","May","5","June","6",
     "July","7","August","8","September","9","October","10","November","11","December","12", "Others")
   ```
   
-- Adding Month Short:
+- Adding "Month Short":
   ```Sh
   Month Short = UPPER(LEFT('Calendar Lookup'[Month Name],3))
   ```
+The above 4 Calculated Fields were added into **Calendar Lookup Table**.
+
+- Adding "Birth Year":
+  ```Sh
+  Birth Year = YEAR('Customer Lookup'[BirthDate])
+  ```
   
+- Adding "Customer Full Name":
+  ```Sh
+  Customer Full Name (CC) = 'Customer Lookup'[Prefix]&" "&'Customer Lookup'[FirstName]&" "&'Customer Lookup'[LastName]
+  ```
+  
+- Adding "Customer Priority":
+  ```Sh
+  Customer Priority = IF ('Customer Lookup'[Parent]="Yes" && 'Customer Lookup'[AnnualIncome]>100000,"Priority","Standard")
+  ```
+  
+- Adding "Education Category":
+  ```Sh
+  Education Category = SWITCH(
+      'Customer Lookup'[EducationLevel],
+      "High School","High School",
+      "Partial High School","High School",
+      "Bachelors","Undergrad",
+      "Partial College","Undergrad",
+      "Graduate"
+    )
+  ```
+  
+- Adding "Income Level":
+  ```S
+  Income Level = SWITCH (TRUE(),
+    'Customer Lookup'[AnnualIncome]>=150000,"Very High",
+    'Customer Lookup'[AnnualIncome]>=100000,"High",
+    'Customer Lookup'[AnnualIncome]>=50000,"Average",
+    "Low"
+    )
+  ```
+  
+- Adding "Parent":
+  ```Sh
+  Parent = if('Customer Lookup'[TotalChildren]>0,"Yes","No")
+  ```
+  
+The above 6 Calculated Fields were added into **Customer Lookup Table**.
+
+- Adding "Price Point":
+  ```Sh
+  Price Point = SWITCH(TRUE(),
+    'Product Lookup'[ProductPrice]>500,"High",
+    'Product Lookup'[ProductPrice]>100,"Mid-Range",
+    "Low"
+  )
+  ```
+  
+- Adding "SKU Category":
+  ```Sh
+  SKU Category = LEFT('Product Lookup'[ProductSKU],SEARCH("-",'Product Lookup'[ProductSKU])-1)
+  ```
+  
+The above 2 Calculated Fields were added into **Product Lookup Table**.
+
 **2. In the REPORT view, add the following measures (Assign to tables as you see fit, and use a matrix to match the "spot check" values) by:**
-
-
-
+- Creating new measures named "Total Cost":
+  ```Sh
+  Total Cost = SUMX('Sales Data','Sales Data'[OrderQuantity]*RELATED('Product Lookup'[ProductCost]))
+  ```
+- Creating new measures named "Total Customer":
+  ```Sh
+  Total Customer = DISTINCTCOUNT('Sales Data'[CustomerKey])
+  ```
+- Creating new measures named "Total Order":
+  ```Sh
+  Total Order = DISTINCTCOUNT('Sales Data'[OrderNumber])
+  ```
+- Creating new measures named "Total Revenue":
+  ```Sh
+  Total Revenue =  SUMX('Sales Data','Sales Data'[OrderQuantity]*RELATED('Product Lookup'[ProductPrice]))
+  ```
+- Creating new measures named "Total Profit":
+  ```Sh
+  Total Profit = [Total Revenue]-[Total Cost]
+  ```
+- Creating new measures named "Total Return":
+  ```Sh
+  Total Return = COUNT('Returns Data'[ReturnQuantity])
+  ```
+- Creating new measures named "Weekend Orders":
+  ```Sh
+  Weekend Orders = CALCULATE([Total Order],'Calendar Lookup'[Is Weekend?]="Weekend")
+  ```
+- Creating new measures named "YTD Revenue":
+  ```Sh
+  YTD Revenue = CALCULATE([Total Revenue],DATESYTD('Calendar Lookup'[Date]))
+  ```
+- Creating new measures named "All Orders":
+  ```Sh
+  All Orders = CALCULATE([Total Order],ALL('Sales Data'))
+  ```
+- Creating new measures named "All Returns":
+  ```Sh
+  All Returns = CALCULATE([Total Return],all('Returns Data'))
+  ```
+- Creating new measures named "Average Retail Price":
+  ```Sh
+  Average Retail Price = AVERAGE('Product Lookup'[ProductPrice])
+  ```
+- Creating new measures named "Average Revenue Per Customer":
+  ```Sh
+  Average Revenue Per Customer = DIVIDE([Total Revenue],[Total Customer])
+  ```
+- Creating new measures named "Bike Returns":
+  ```Sh
+  Bike Returns = calculate([Total Return],'Product Category Lookup'[CategoryName]="Bikes")
+  ```
+- Creating new measures named "Bike Return Rate":
+  ```Sh
+  Bike Return Rate = calculate([Return Rate],'Product Category Lookup'[CategoryName]="Bikes")
+  ```
+- Creating new measures named "Bike Sales":
+  ```Sh
+  Bike Sales = CALCULATE([Quantity Sold],'Product Category Lookup'[CategoryName]="Bikes")
+  ```
+- Creating new measures named "Bulk Order":
+  ```Sh
+  Bulk Order = CALCULATE([Total Order],'Sales Data'[OrderQuantity]>1)
+  
 **3. In the Additional Tables for Metric Selection, add the following Measures by:**
 
 

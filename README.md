@@ -222,14 +222,39 @@ All the steps above resulted in the following Relation Model:
 ![](RelationModel.png)
 
 ## Adding Calculated Fields and DAX (Data Analysis eXpression)
-There are 2 spots in which I worked to add Calculation Fields and DAX, i.e. the **Data View** and the **Report View**.
+There are 3 spots in which I worked to add Calculation Fields and DAX, i.e. the **Data View**, the **Report View**, and the **Additional Tables for Metric Selection**.
 
 **1. In the DATA view, add the following calculated columns by:**
-
+- Adding Day of Week Calculation Field:
+  ```Sh
+  Day of Week = WEEKDAY('Calendar Lookup'[Date],2)
+  ```
+  
+- Adding Is Weekend?:
+  ```Sh
+  Is Weekend? = if('Calendar Lookup'[Day of Week]= 6 || 'Calendar Lookup'[Day of Week] = 7,"Weekend","Weekday")
+  ```
+  
+- Adding Month Number:
+  ```Sh
+  SWITCH ('Calendar Lookup'[Month Name],
+    "January","1","February","2","March","3","April","4","May","5","June","6",
+    "July","7","August","8","September","9","October","10","November","11","December","12", "Others")
+  ```
+  
+- Adding Month Short:
+  ```Sh
+  Month Short = UPPER(LEFT('Calendar Lookup'[Month Name],3))
+  ```
+  
+The above 4 Calculated Fields were added into Calendar Lookup Table
 
 
 **2. In the REPORT view, add the following measures (Assign to tables as you see fit, and use a matrix to match the "spot check" values) by:**
 
+
+
+**3. In the Additional Tables for Metric Selection, add the following Measures by:**
 
 
 Executing all the detailed Steps in 2 spots above, resulted in adding a new Table containing all Measures needed in the modelling.

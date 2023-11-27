@@ -150,7 +150,7 @@ There are several steps in this phase in order to connect and shape the Data use
 **5. Connect to the AdventureWorks Product Subcategory Lookup csv file by:**
 
 - Naming the table "Product Subcategory Lookup" and making sure that headers have been promoted
-- Confirming that data types are accurate (Note: "ProductSubcategoryKey" and "ProductCategoryKey" should be Whole Number, while "SubcategoryName" must be Text).
+- Confirming that data types are accurate. "ProductSubcategoryKey" and "ProductCategoryKey" should be Whole Number, while "SubcategoryName" must be Text).
 
 ![](ProductSubcategoryLookup.png)
 

@@ -257,7 +257,7 @@ The above 4 Calculated Fields were added into Calendar Lookup Table
 **3. In the Additional Tables for Metric Selection, add the following Measures by:**
 
 
-Executing all the detailed Steps in 2 spots above, resulted in adding a new Table containing all Measures needed in the modelling.
+Executing all the detailed Steps in 3 spots above, resulted in adding a new Table containing all Measures needed in the modelling.
 
 ![](MeasureTable.png)
 

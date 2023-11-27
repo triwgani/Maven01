@@ -372,6 +372,7 @@ The above 2 Calculated Fields were added into **Product Lookup Table**.
 - Creating new measures named "Bulk Order":
   ```Sh
   Bulk Order = CALCULATE([Total Order],'Sales Data'[OrderQuantity]>1)
+  ```
   
 **3. In the Additional Tables for Metric Selection, add the following Measures by:**
 

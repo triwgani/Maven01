@@ -205,25 +205,24 @@ Those steps are as follow:
 
 **1. In the MODEL view, arrange the tables so that the lookup tables are above the data tables by:**
 
-- Connecting Transaction_Data to Customers, Products, and Stores using valid primary/foreign keys 
-- Connecting Transaction_Data to Calendar using both date fields, with an inactive "stock_date" relationship
-- Connecting Return_Data to Products, Calendar, and Stores using valid primary/foreign keys
-- Connecting Stores to Regions as a "snowflake" schema
+- Connecting Returns Data to Territory, Calendar, and Product Lookup using valid primary/foreign keys 
+- Connecting Sales Data to Customer, Calendar, Territory, and Product Lookup using using valid primary/foreign keys
+- Connecting Product Lookup to Product Subcategories as a "snowflake" schema
+- Connecting Product Subcategories to Product Category Lookup as a "snowflake" schema
 
 **2. Confirm the following:**
 
 - All relationships follow one-to-many cardinality, with primary keys (1) on the lookup side and foreign keys (*) on the data side
 - Filters are all one-way (no two-way filters)
 - Filter context flows "downstream" from lookup tables to data tables
-- Data tables are connected via shared lookup tables (not directly to each other)
+- Data tables are connected via shared lookup tables (not directly to each other). In this case, no direct connection between Sales Data Table with Returns Data Table
 
-**3. Hide all foreign keys in both data tables from Report View, as well as "region_id" from the Stores table**
+**3. Hide all foreign keys in Return Data Table from Report View**
 
 **4. In the DATA view, complete the following steps by:**
-- Updating all date fields (across all tables) to the "M/d/yyyy" format using the formatting tools in the Modeling tab
-- Updating "product_retail_price", "product_cost", and "discount_price" to Currency ($ English) format
-- In the Customers table, categorizing "customer_city" as City, "customer_postal_code" as Postal Code, and "customer_country" as Country/Region
-- In the Stores table, categorizing "store_city" as City, "store_state" as State or Province, "store_country" as Country/Region, and "full_address" as Address 
+- Updating all date fields (across all tables) to the "dd/mm/yyyy" (short date) format using the formatting tools in the Modeling tab
+- Updating "ProductPrice", "DiscountPrice", and "ProductCost" to Currency ($ English) with 2 decimal places format
+- In the Territory Lookup Table, categorizing "Continent" as Continent, and "Country" as Country
 
 All the steps above resulted in the following Relation Model:
 

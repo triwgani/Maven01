@@ -470,7 +470,27 @@ The above 2 Calculated Fields were added into **Product Lookup Table**.
   ```
   
 **3. In the Additional Tables for Metric Selection, add the following Measures by:**
-
+There are **3 Additional Tables for Metric Selection**, i.e.:
+- Customer Metric Selection:
+  ```Sh
+  Customer Metric Selection = {
+    ("Total Customer", NAMEOF('Measures Table'[Total Customer]), 0),
+    ("Revenue Per Customer", NAMEOF('Measures Table'[Average Revenue Per Customer]), 1)}
+  ```
+- Price Adjustment (%) and Price Adjustment (%) Value:
+  ```Sh
+  Price Adjustment (%) = GENERATESERIES(-1, 1, 0.1)
+  Price Adjustment (%) Value = SELECTEDVALUE('Price Adjustment (%)'[Price Adjustment (%)], 0)
+  ```
+- Product Metric Selection:
+  ```Sh
+  Product Metric Selection = {
+    ("Order", NAMEOF('Measures Table'[Total Order]), 0),
+    ("Revenue", NAMEOF('Measures Table'[Total Revenue]), 1),
+    ("Profit", NAMEOF('Measures Table'[Total Profit]), 2),
+    ("Return", NAMEOF('Measures Table'[Total Return]), 3),
+    ("Return %", NAMEOF('Measures Table'[Return Rate]), 4)}
+  ```
 
 Executing all the detailed Steps in 3 spots above, resulted in adding a new Table containing all Measures needed in the modelling.
 

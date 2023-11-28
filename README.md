@@ -81,7 +81,7 @@ There are 8 Datasets used in this project, i.e.:
 | MaritalStatus | Text |
 | Gender | Text |
 | EmailAddress | Text |
-| AnnualIncome | Fixed Deci9mal Number |
+| AnnualIncome | Fixed Decimal Number |
 | TotalChildren | Whole Number |
 | EducationLevel | Text |
 | Occupation | Text |
@@ -372,6 +372,101 @@ The above 2 Calculated Fields were added into **Product Lookup Table**.
 - Creating new measures named "Bulk Order":
   ```Sh
   Bulk Order = CALCULATE([Total Order],'Sales Data'[OrderQuantity]>1)
+  ```
+- Creating new measures named "Quantity Returned":
+  ```Sh
+  Quantity Returned = SUM('Returns Data'[ReturnQuantity])
+  ```
+- Creating new measures named "Quantity Sold":
+  ```Sh
+  Quantity Sold = sum('Sales Data'[OrderQuantity])
+  ```
+- Creating new measures named "Return Rate":
+  ```Sh
+  Return Rate = DIVIDE([Quantity Returned],[Quantity Sold],"No Sales")
+  ```
+- Creating new measures named "Return Target":
+  ```Sh
+  Returns Target = [Previous Month Returns]*1.1
+  ```
+- Creating new measures named "Revenue Target":
+  ```Sh
+  Revenue Target = [Previous Month Revenue]*1.1
+  ```
+- Creating new measures named "Revenue Target Gap":
+  ```Sh
+  Revenue Target Gap = [Total Revenue]-[Revenue Target]
+  ```
+- Creating new measures named "High Ticket Orders":
+  ```Sh
+  High Ticket Orders = CALCULATE([Total Order],
+    FILTER('Product Lookup','Product Lookup'[ProductPrice]>[Overall Average Price]))
+  ```
+- Creating new measures named "Order Target":
+  ```Sh
+  Orders Target = [Previous Month Orders]*1.1
+  ```
+- Creating new measures named "Order Target Gap":
+  ```Sh
+  Order Target Gap = [Total Order] - [Orders Target]
+  ```
+- Creating new measures named "Overall Average Price":
+  ```Sh
+  Overall Average Price = CALCULATE([Average Retail Price],ALL('Product Lookup'))
+  ```
+- Creating new measures named "Previous Month Orders":
+  ```Sh
+  Previous Month Orders = CALCULATE([Total Order],DATEADD('Calendar Lookup'[Date],-1,MONTH))
+  ```
+- Creating new measures named "Previous Month Profit":
+  ```Sh
+  Previous Month Profit = CALCULATE([Total Profit],DATEADD('Calendar Lookup'[Date],-1,MONTH))
+  ```
+- Creating new measures named "Previous Month Returns":
+  ```Sh
+  Previous Month Returns = CALCULATE([Total Return],DATEADD('Calendar Lookup'[Date],-1,MONTH))
+  ```
+- Creating new measures named "Previous Month Revenue":
+  ```Sh
+  Previous Month Revenue = CALCULATE([Total Revenue],DATEADD('Calendar Lookup'[Date],-1,MONTH))
+  ```
+- Creating new measures named "Profit Target":
+  ```Sh
+  Profit Target = [Previous Month Profit]*1.1
+  ```
+- Creating new measures named "Profit Target Gap":
+  ```Sh
+  Profit Target Gap = [Total Profit]-[Profit Target]
+  ```
+- Creating new measures named "% of All Order":
+  ```Sh
+  P% of All Order = DIVIDE([Total Order],[All Orders])
+  ```
+- Creating new measures named "% of All Returns":
+  ```Sh
+  % of All Returns = DIVIDE([Total Return],[All Returns])
+  ```
+- Creating new measures named "10-Day-Rolling Revenue":
+  ```Sh
+  10-Day-Rolling Revenue = CALCULATE(
+  [Total Revenue],DATESINPERIOD ('Calendar Lookup'[Date],MAX('Calendar Lookup'[Date]),-10,DAY))
+  ```
+- Creating new measures named "90-Day-Rolling Profit":
+  ```Sh
+  90-Day-Rolling Profit = CALCULATE(
+  [Total Profit], DATESINPERIOD ('Calendar Lookup'[Date],MAX('Calendar Lookup'[Date]),-90,DAY))
+  ```
+- Creating new measures named "Adjusted Price":
+  ```Sh
+  Adjusted Price = [Average Retail Price]*(1 + 'Price Adjustment (%)'[Price Adjustment (%) Value])
+  ```
+- Creating new measures named "Adjusted Profit":
+  ```Sh
+  Adjusted Profit = [Adjusted Revenue]-[Total Cost]
+  ```
+- Creating new measures named "Adjusted Revenue":
+  ```Sh
+  Adjusted Revenue = SUMX('Sales Data','Sales Data'[OrderQuantity]*[Adjusted Price])
   ```
   
 **3. In the Additional Tables for Metric Selection, add the following Measures by:**

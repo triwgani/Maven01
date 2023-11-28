@@ -492,9 +492,9 @@ There are **3 Additional Tables for Metric Selection**, i.e.:
     ("Return %", NAMEOF('Measures Table'[Return Rate]), 4)}
   ```
 
-Executing all the detailed Steps in 3 spots above, resulted in adding a new Table containing all Measures needed in the modelling.
+Executing all the detailed Steps in 3 spots above, resulted in adding 4 new Tables containing all Measures needed in the modelling.
 
-![](MeasureTable.png)
+![](Measures&Additional.png)
 
 The overall tables created the complete Relation Model for all the data loaded in the Power Bi
 

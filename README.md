@@ -193,7 +193,13 @@ There are several steps in this phase in order to connect and shape the Data use
 
 ## Building a Relational Model
 
-There are several steps in this phase in order to build a Relational Model.
+There are several steps in this phase in order to build a Relational Model. These steps involves Tables from 2 different groups **(Lookup Tables & Data Tables)**:
+
+**A. Lookup Tables:**
+> Calendar Lookup, Customer Lookup, Product Category Lookup, Product Lookup, Product Subcategories Lookup, and Territory Lookup.
+
+**B. Data Tables:**
+> Returns Data and Sales Data
 
 **1. In the MODEL view, arrange the tables so that the lookup tables are above the data tables by:**
 

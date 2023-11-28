@@ -508,13 +508,39 @@ The overall tables created the complete Relation Model for all the data loaded i
 
 ## Building Interactive Report
 
-The report dashboard is to provide information in the Problem Questions Section. Below is the Dashboard for the report.
+The report dashboard is to provide information and answer the questions in the Problem Questions Section. There are **8 pages** in the dashboard, i.e.:
 
-![](Dashboard.png)
+**1. Executive Dashboard**
 
-I also built a Note Report Page where its purpose is to provide insights (by utilizing the Bookmark function) so that it can be quickly shown to the management / stakeholders. Later on, for future use, I can add as many insights as can be found based on the data. Yet, in this case I only provided 3 quick insights, i.e.: Portland 1000 Sales, Victoria Hits Positive, and Plato drove the highest profit rate.
+![](ExecDashboard.png)
 
-![](Notes.png)
+**2. Product Detail**
+
+![](ProductDetail.png)
+
+**3. Map**
+
+![](Map.png)
+
+**4. Customer Detail**
+
+![](CustomerDetail.png)
+
+**5. Question & Answer (QnA)**
+
+![](QnA.png)
+
+**6. Decomposition Tree**
+
+![](DecompositionTree.png)
+
+**7. Key Influencer**
+
+![](KeyInfluencer.png)
+
+**8. Top Segmentation**
+
+![](TopSegment.png)
 
 ## Analysis to answer the Problem Questions
 - Defining the Top 30 Product Brands with most Total Transactions and their corresponding Profit, Profit Margin, as well as Return Rate in descending order.

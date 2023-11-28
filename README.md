@@ -201,6 +201,8 @@ There are several steps in this phase in order to build a Relational Model. Thes
 **B. Data Tables:**
 > Returns Data and Sales Data
 
+Those steps are as follow:
+
 **1. In the MODEL view, arrange the tables so that the lookup tables are above the data tables by:**
 
 - Connecting Transaction_Data to Customers, Products, and Stores using valid primary/foreign keys 

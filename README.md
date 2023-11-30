@@ -3,9 +3,14 @@
 
 ![](AdventureWorks.png)
 
-This Project Case is part of the [Microsoft Power BI Desktop for Business Intelligence Course](https://www.udemy.com/course/microsoft-power-bi-up-running-with-power-bi-desktop/) on [Udemy](https://www.udemy.com) online platform by **Maven Analytics**. In this case, I am being put in the point of view of a Business Intelligence Analyst in **AdventureWorks**, a global manufacturing company that runs cycling equipment and accessories production. The objectives are to transform raw data into a dashboard report to help the Management Team track the KPI, monitor and compare the performance, and identify some insights, as well as high value customers. I worked through the entire business intelligence workflow, i.e.: **connecting and transforming the raw data, building a relational data model, creating calculated fields and measures with DAX, and designing an interactive report** to visualize the data.
+This Project Case is part of the [Microsoft Power BI Desktop for Business Intelligence Course](https://www.udemy.com/course/microsoft-power-bi-up-running-with-power-bi-desktop/) on [Udemy](https://www.udemy.com) online platform by **Maven Analytics**. In this case, I am being put in the point of view of a Business Intelligence Analyst in **AdventureWorks**, a global manufacturing company that runs cycling equipment and accessories production. The Management Team needs a way to track the KPI, monitor and compare the performance, and identify some insights, as well as high value customers. 
 
-## Problem Questions
+## Objectives
+Using the Power BI to:
+- Connect and transform the raw data
+- Build a relational data model
+- Create calculated columns and measures with DAX (Data Analysis eXpression)
+- Design an interactive dashboard to visualize the data
 
 ## Datasets
 
@@ -543,8 +548,8 @@ The report dashboard is to provide information and answer the questions in the P
 
 ![](TopSegment.png)
 
-## Analysis to answer the Problem Questions
-- Defining the Top 30 Product Brands with most Total Transactions and their corresponding Profit, Profit Margin, as well as Return Rate in descending order.
+## Analysis:
+As per defined in the Objectives section, the final goal of the project was to provide a dashboard that can do several things.
 
 **Solution:**
 

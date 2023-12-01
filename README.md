@@ -514,7 +514,7 @@ The overall tables created the complete Relation Model for all the data loaded i
 
 ## Building Interactive Report
 
-The report dashboard is to provide information and answer the questions in the Problem Questions Section. There are **8 pages** in the dashboard, i.e.:
+The report dashboard is to provide information as required in the Objectives Section. There are **8 pages** in the dashboard, i.e.:
 
 **1. Executive Dashboard**
 
@@ -549,49 +549,9 @@ The report dashboard is to provide information and answer the questions in the P
 ![](TopSegment.png)
 
 ## Analysis:
-As per defined in the Objectives section, the final goal of the project was to provide a dashboard that can do several things.
+As per defined in the Objectives section, the final goal of the project was to provide a dashboard that can be used to analyze several things.
 
-**Solution:**
 
-![](QA1.png)
-
-Based on the picture above, Hermanos peaked the position of the Top 30 Product Brands with the most Total Transaction of 5,342 with Total Profit of $ 21,753 and Margin of 58.64%, as well as Return Rate of 0.95%. Its position is followed by Ebony and Tell Tale in the second and third position. All the Top 30 Product Brand drove a total of 113,668 Transactions, with acumulative Profit Margin of 59.94% that equals to Total Profit of $ 449,627, and total Return Rate of 1.00%.
-
-- Providing KPI information displaying the Current Month Transactions vs Last Month Transactions, Current Month Profit vs Last Month Profit, and Current Month Returns vs Last Month Returns.
-
-**Solution:**
-
-![](QA2.png)
-
-Based on the scorecards displayed above, the Total Transactions in the current month had reached 18,325 number of transaction. This has surpassed the target of 17,339 transaction (around 5.69% increment) above the last month transaction. This drove a 5.61% increment of profit which equals of a Total Profit of $ 71,682 in the current month. However, it turned out that in the same period, the current Monthly Returned also increased by 2.9% or equals 14 additional returns from the previous month return (482). This means along with the increasing number of transaction, there was also an increasing number of goods returned. It is advisable to examine the cause as well of the type of the returned goods.
-
-- Displaying a visual geographical map showing Transactions by Cities in which the company stores are operating.
-
-**Solution:**
-
-![](QA3.png)
-
-If we expand the map on the Dashboard, we will see from the map above that most of the stores are located in USA, while the country with the second most store number is Mexico. Canada is in the 3rd place for number of store in the country. This number of store drove the number of transaction, as well as total profit gained (representated by the bubble size).
-
-![](QA3a.png)
-
-A quick spot check for Total Transactions and Total Profit for each country has confirmed that.
-
-- Providing information of Total Transaction in each of the country that can be drilled up/down, so that the granularity of the information can be determined in either level of country, city, or state.
-
-**Solution:**
-
-![](QA4.png)
-
-The Treemap above implies that most of the Transaction happened in the USA. This is because most stores are located in USA. This is aligned with the information provided in the previous solution. The more stores are open, the more Transaction will take place, which eventually would drive the Total Profit.
-
-- Providing the weekly trending of the company's revenue, especially during the year 1998. Besides that, the management also wanted to find out the highest monthly revenue ever achieved.
-
-**Solution:**
-
-![](QA5.png)
-
-Based on the visuals above, the revenue experienced fluctuation over the time during year 1998. The highest revenue ever achieved was $ 120K, a slightly different from the corresponding target of around $ 119K.
 
 ## Report Dashboard Link:
 The live report dashboard can be found [here](https://app.powerbi.com/groups/me/reports/aa4bad5c-0c93-4414-a8af-5376159b304b/ReportSection1d63a5027250201e045d?experience=power-bi)
